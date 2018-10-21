@@ -86,13 +86,11 @@ handleFormSubmit = event =>{
 };
 handleInputChange = event => {
   this.setState({
-     addFormValue:event.target.value,
-   
+     addFormValue:event.target.value,   
    });
 };
 handleEmailInputChange = event => {
   this.setState({
-    
      addEmailValue:event.target.value
    });
 };
@@ -116,7 +114,6 @@ submitMyForm(data) {
     const { pristine, submitting, addFormValue,addEmailValue, handleSubmit } = this.props;
   return (
     <MuiThemeProvider muiTheme={getMuiTheme()}>
-   
     <Form size="small"style={{ background:'#F0F0F0'}}>
     <Grid >
     <Grid.Column >
@@ -126,15 +123,15 @@ submitMyForm(data) {
    </Header>
    <Segment stacked>
     <form onSubmit={this.handleFormSubmit} className={classes.Feedback}>
-
-  <div>
+  
+     <div>
         <Field
           name="name"
           component={renderTextField}
           label="Name"
         />
-  </div>
-  <div>
+    </div>
+    <div>
         <Field 
         name="email" 
         component={renderTextField} 
@@ -142,8 +139,8 @@ submitMyForm(data) {
         value={addEmailValue}
         onChange={this.handleEmailInputChange}
         />
-  </div>
-  <div>
+   </div>
+   <div>
         <Field
           name="Type"
           component={renderSelectField}
@@ -153,8 +150,8 @@ submitMyForm(data) {
           <MenuItem value="00ff00" primaryText="Comment" />
           <MenuItem value="0000ff" primaryText="Opinion" />
         </Field>
-  </div>
-  <div>
+   </div>
+    <div>
         <Field name="Gender" component={renderRadioGroup}>
           <RadioButton value="male" label="male" />
           <RadioButton value="female" label="female" />
@@ -172,24 +169,21 @@ submitMyForm(data) {
         />
   </div>
   <div>
-    
     <Button color="yellow" 
     onClick={()=>this.handleFormSubmit} fluid 
     type="submit" 
     disabled={pristine || submitting}>
     Send
     </Button>
-    </div>
-    
+    </div>  
   </form>
-    </Segment>
+ </Segment>
     <Message size="small" color="yellow" align='center'>
         Your Feedback is Important to us.
     </Message>
     </Grid.Column>
     </Grid>
     </Form>
-
     </MuiThemeProvider>
   );
 };
@@ -204,7 +198,6 @@ let form = reduxForm({
 function mapDispatchToProps(dispatch){
   return bindActionCreators({sendFeedback:sendFeedback}, dispatch)
 }
-
 form = connect(null, mapDispatchToProps)(form);
 export default form;
 
